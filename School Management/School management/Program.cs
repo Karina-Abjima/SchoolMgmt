@@ -1,9 +1,14 @@
+using Dapper;
+using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient(x => new MySqlConnection(builder.Configuration.GetConnectionString("Db")));
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

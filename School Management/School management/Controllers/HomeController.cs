@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace School_management.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
