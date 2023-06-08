@@ -1,10 +1,15 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using School_management;
+using School_management.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<DapperContext>();
+builder.Services.AddScoped<ISignupRepository, SignupRepository>();
 builder.Services.AddTransient(x => new MySqlConnection(builder.Configuration.GetConnectionString("Db")));
 
 var app = builder.Build();
