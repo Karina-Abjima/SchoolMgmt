@@ -2,8 +2,8 @@
 {
     public enum UserType
     {
-        Student,
-        Teacher,
-        Principal
+        Student=1,
+        Teacher=2,
+        Principal=3
     }
 }

@@ -4,6 +4,7 @@ using School_management;
 using System.Data;
 using System.Data.SqlClient;
 using Dapper;
+using System.Data.Common;
 
 namespace School_management.Data
 {
@@ -16,7 +17,7 @@ namespace School_management.Data
             _context = context;
         }
 
-        public async Task<bool> PostUserData(User user)
+        public async Task<string> PostUserData(User user)
         {
             try { 
             using (var connection = _context.CreateConnection())
@@ -26,12 +27,19 @@ namespace School_management.Data
                 param.Add("@Username", user.Username);
                 param.Add("@Mail", user.Mail);
                 param.Add("@Password", user.Password);
-                param.Add("@User_type", user.User_type);
-                 
-                int IfSignedUp = await connection.ExecuteAsync("signup", param, null, 1000, CommandType.StoredProcedure);
-                if (IfSignedUp == 0)
-                    return true;
-                else return false;
+                param.Add("@User_type",user.User_type.Value);
+
+                    int IfSignedUp= connection.ExecuteScalar<int>("signup", param, commandType: CommandType.StoredProcedure);
+
+                    //int IfSignedUp = param.Get<int>("@resultVal");
+                    if (IfSignedUp == 0)
+                    {
+                        return "User Registered!";
+                    }
+                    else
+                    { 
+                        return "Already Exist";
+                        }
             }
             }
             catch(Exception ex) {

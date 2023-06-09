@@ -24,41 +24,52 @@ namespace YourProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> IndexAsync(User user)
+        public async Task<string> IndexAsync(User user)
         {
-            if (ModelState.IsValid)
-            {
-                //Task<bool>result =_signupRepository. PostUserData( user);
-                //if (result == false)
-                //    {
-                //    ViewBag.Message = "User Registered!";
-                //     }
-
-                //else
-                //     {
-                //    ViewBag.Message = "User Already Exist!";
-                //        }
-
-                //return View();
-
-                bool result = await _signupRepository.PostUserData(user);
-
-                if (result == false)
+                           if (ModelState.IsValid)
                 {
-                    ViewBag.Message = "User Already Exist!";
-                }
-                else
-                {
-                    ViewBag.Message = "User Registered!";
-                }
+                    //Task<bool>result =_signupRepository. PostUserData( user);
+                    //if (result == false)
+                    //    {
+                    //    ViewBag.Message = "User Registered!";
+                    //     }
 
-                return View();
-            }
-        
-            throw new Exception();
-        }
+                    //else
+                    //     {
+                    //    ViewBag.Message = "User Already Exist!";
+                    //        }
+
+                    //return View();
+
+                    string result = await _signupRepository.PostUserData(user);
+
+
+
+                    return result;
+
+                }
+                
+            
+                throw new Exception();
+            
+
+        } 
+        //[HttpGet]
+        //public  ActionResult OutputAsync(bool result)
+        //{
+        //    if (result == false)
+        //    {
+        //        ViewBag.Message = "User Already Exist!";
+        //    }
+        //    else
+        //    {
+        //        ViewBag.Message = "User Registered!";
+        //    }
+        //    return View();
+        //}
     }
 }
+
 //                try
 //                {
 //                    using (var connection = new SqlConnection(_connectionString))
