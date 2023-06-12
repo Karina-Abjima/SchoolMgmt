@@ -18,10 +18,12 @@ namespace School_management.Controllers
        {
             return View();
         }
-        public IActionResult Output()
+        public IActionResult NewPage()
         {
             return View();
         }
+       
+        
         public IActionResult Privacy()
         {
             return View();

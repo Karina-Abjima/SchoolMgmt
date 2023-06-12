@@ -19,6 +19,7 @@ namespace School_management.Models
         //[Display(Name = "Select type")]
         //[System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Please select your major.")]
         //[EnumDataType(typeof(userType))]
+        [Microsoft.Build.Framework.Required]
         public UserType ?User_type { get; set; }
 
 

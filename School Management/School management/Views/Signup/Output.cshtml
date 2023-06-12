@@ -1,0 +1,32 @@
+﻿@model School_management.Models.LoginUser
+
+@Html.Raw(TempData["SignupSuccessMessage"])
+@Html.Raw(TempData["AlreadyExist"])
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Output", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mail)
+        @Html.TextBoxFor(m => m.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mail, "", new { @class = "text-danger" })
+    </div>
+       <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.User_type)
+        @Html.DropDownListFor(m => m.User_type, new SelectList(Enum.GetValues(typeof(UserType))), "Select user type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.User_type, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Login"  class="btn btn-primary" />
+    </div>
+
+}

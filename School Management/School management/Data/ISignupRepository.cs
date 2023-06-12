@@ -6,6 +6,6 @@ namespace School_management.Data
     public interface ISignupRepository
     {
 
-        public Task<string> PostUserData(User user);
+        public Task<bool> PostUserData(User user);
     }
 }

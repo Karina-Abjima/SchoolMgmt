@@ -20,13 +20,19 @@ namespace YourProject.Controllers
             _signupRepository = signupRepository;
 
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<string> IndexAsync(User user)
+        public async Task<ActionResult> Index(User user)
         {
-                           if (ModelState.IsValid)
+            try
+            {
+                if (ModelState.IsValid)
                 {
                     //Task<bool>result =_signupRepository. PostUserData( user);
                     //if (result == false)
@@ -41,34 +47,49 @@ namespace YourProject.Controllers
 
                     //return View();
 
-                    string result = await _signupRepository.PostUserData(user);
+                    bool result = await _signupRepository.PostUserData(user);
 
 
-
-                    return result;
-
+                    if (result)
+                    {
+                        TempData["SignupSuccessMessage"] = "<script>alert('Signup Successfull !') </script >";
+                        return RedirectToAction("Output");
+                    }
                 }
-                
-            
-                throw new Exception();
-            
+            }
 
-        } 
-        //[HttpGet]
-        //public  ActionResult OutputAsync(bool result)
-        //{
-        //    if (result == false)
-        //    {
-        //        ViewBag.Message = "User Already Exist!";
-        //    }
-        //    else
-        //    {
-        //        ViewBag.Message = "User Registered!";
-        //    }
-        //    return View();
-        //}
+
+            catch (Exception ex)
+            {
+                string f = ex.Message;
+                TempData["AlreadyExist"] = $"<script>alert('{f}');</script>";
+                if (f == "Nullable object must have a value.")
+                    return View();
+                else
+                    return RedirectToAction("Output");
+            }
+
+            return View();
+        }
+
+       
     }
+
+    //[HttpGet]
+    //public  ActionResult OutputAsync(bool result)
+    //{
+    //    if (result == false)
+    //    {
+    //        ViewBag.Message = "User Already Exist!";
+    //    }
+    //    else
+    //    {
+    //        ViewBag.Message = "User Registered!";
+    //    }
+    //    return View();
+    //}
 }
+
 
 //                try
 //                {
@@ -105,7 +126,7 @@ namespace YourProject.Controllers
 //                    ModelState.AddModelError("", "An error occurred while creating the user: " + ex.Message);
 //                }
 //            }
-            
+
 
 //            // If the model state is invalid, return to the signup page with validation errors
 //            return View(user);

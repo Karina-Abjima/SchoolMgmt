@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\newSchoolMgmt\\School Management\\School management\\School management.csproj": {}
+    "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\New folder\\School Management\\School management\\School management.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\newSchoolMgmt\\School Management\\School management\\School management.csproj": {
+    "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\New folder\\School Management\\School management\\School management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\newSchoolMgmt\\School Management\\School management\\School management.csproj",
+        "projectUniqueName": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\New folder\\School Management\\School management\\School management.csproj",
         "projectName": "School management",
-        "projectPath": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\newSchoolMgmt\\School Management\\School management\\School management.csproj",
+        "projectPath": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\New folder\\School Management\\School management\\School management.csproj",
         "packagesPath": "C:\\Users\\KarinaGwalani\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\newSchoolMgmt\\School Management\\School management\\obj\\",
+        "outputPath": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\New folder\\School Management\\School management\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

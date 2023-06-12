@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kVjUjklqaDNFcrboUUVPWrFg2pPr2YXavi6WqUs6DZmmmloWv+MfJ5XzYnSmimXmb8LdYSVJCpIsrarBrIRH+w==",
+  "dgSpecHash": "8SHDX/CCZvEJwhNC5n10afN7crIJUhUo404aK4ndFY63nsBglunBetv6zLv+EpSFtrw6rbjqQTf2zhZ+RSHoLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\newSchoolMgmt\\School Management\\School management\\School management.csproj",
+  "projectFilePath": "C:\\Users\\KarinaGwalani\\Documents\\GitHub\\New folder\\School Management\\School management\\School management.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KarinaGwalani\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\KarinaGwalani\\.nuget\\packages\\dapper.contrib\\2.0.78\\dapper.contrib.2.0.78.nupkg.sha512",

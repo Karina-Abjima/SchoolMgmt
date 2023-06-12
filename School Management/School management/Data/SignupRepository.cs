@@ -17,34 +17,27 @@ namespace School_management.Data
             _context = context;
         }
 
-        public async Task<string> PostUserData(User user)
+        public async Task<bool> PostUserData(User user)
         {
-            try { 
-            using (var connection = _context.CreateConnection())
+            try
             {
-                //connection.Open();
-                var param = new DynamicParameters();
-                param.Add("@Username", user.Username);
-                param.Add("@Mail", user.Mail);
-                param.Add("@Password", user.Password);
-                param.Add("@User_type",user.User_type.Value);
+                using (var connection = _context.CreateConnection())
+                {
+                    var param = new DynamicParameters();
+                    param.Add("@Username", user.Username);
+                    param.Add("@Mail", user.Mail);
+                    param.Add("@Password", user.Password);
+                    param.Add("@User_type", user.User_type.Value);
 
-                    int IfSignedUp= connection.ExecuteScalar<int>("signup", param, commandType: CommandType.StoredProcedure);
-
-                    //int IfSignedUp = param.Get<int>("@resultVal");
-                    if (IfSignedUp == 0)
-                    {
-                        return "User Registered!";
-                    }
-                    else
-                    { 
-                        return "Already Exist";
-                        }
+                    bool result = await connection.ExecuteScalarAsync<bool>("signup", param, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
             }
-            }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
+
     }
 }
